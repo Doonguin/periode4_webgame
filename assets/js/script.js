@@ -1,4 +1,4 @@
-import loadModel from "p5.min.js";
+import "p5.min.js";
 
 function onloadStart() {
     // Define the canvas element
