@@ -129,7 +129,6 @@ function getVCollision(angle) {
     if (!wall) {
       nextX += xA;
       nextY += yA;
-    } else {
     }
   }
   return {
