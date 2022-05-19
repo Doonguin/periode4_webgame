@@ -1,12 +1,12 @@
 const map = [
   [1, 1, 1, 1, 1, 1, 1, 1, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 1, 0, 0, 0, 1, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 0, 0, 1, 0, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1],
-  [1, 0, 0, 0, 0, 0, 0, 0, 1],
+  [1, 0, 1, 0, 0, 0, 1, 0, 1],
+  [1, 0, 0, 1, 1, 1, 0, 0, 1],
   [1, 0, 0, 0, 0, 0, 0, 0, 1],
   [1, 1, 1, 1, 1, 1, 1, 1, 1],
 ];
@@ -21,11 +21,11 @@ const CELL_SIZE = 32;
 const FOV = toRadians(60);
 
 const COLORS = {
-  floor: "#d52b1e", // "#ff6361"
-  ceiling: "#ffffff", // "#012975",
-  wall: "#013aa6", // "#58508d"
-  wallDark: "#012975", // "#003f5c"
-  rays: "#ffa600",
+  floor: "green", // "#ff6361"
+  ceiling: "lightblue", // "#012975",
+  wall: "firebrick", // "#58508d"
+  wallDark: "rgb(149, 29, 29)", // "#003f5c"
+  rays: "rgb(0, 0, 0, 0)",
 };
 
 const player = {
@@ -48,7 +48,7 @@ function renderMinimap(posX = 0, posY = 0, scale, rays) {
   map.forEach((row, y) => {
     row.forEach((cell, x) => {
       if (cell) {
-        context.fillStyle = "grey";
+        context.fillStyle = "rgb(128, 128, 128, 0)";
         context.fillRect(
           posX + x * cellSize,
           posY + y * cellSize,
@@ -58,7 +58,7 @@ function renderMinimap(posX = 0, posY = 0, scale, rays) {
       }
     });
   });
-  context.fillStyle = "blue";
+  context.fillStyle = "rgb(0, 0, 0, 0)";
   context.fillRect(
     posX + player.x * scale - 10 / 2,
     posY + player.y * scale - 10 / 2,
@@ -66,7 +66,7 @@ function renderMinimap(posX = 0, posY = 0, scale, rays) {
     10
   );
 
-  context.strokeStyle = "blue";
+  context.strokeStyle = "rgb(0, 0, 0, 0)";
   context.beginPath();
   context.moveTo(player.x * scale, player.y * scale);
   context.lineTo(
@@ -236,20 +236,20 @@ canvas.addEventListener("click", () => {
 });
 
 document.addEventListener("keydown", (e) => {
-  if (e.key === "ArrowUp") {
+  if (e.key === "w") {
     player.speed = 2;
   }
-  if (e.key === "ArrowDown") {
+  if (e.key === "s") {
     player.speed = -2;
   }
 });
 
 document.addEventListener("keyup", (e) => {
-  if (e.key === "ArrowUp" || e.key === "ArrowDown") {
+  if (e.key === "w" || e.key === "s") {
     player.speed = 0;
   }
 });
 
 document.addEventListener("mousemove", function (event) {
-  player.angle += toRadians(event.movementX);
+  player.angle += toRadians(event.movementX) / 5;
 });
