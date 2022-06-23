@@ -1,3 +1,10 @@
+<?php
+
+require('assets/database/connection.php');
+require('assets/database/formhandler.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +19,11 @@
 
     </canvas>
     <h2>
-        Jouw moeder is een heks
+        <form method="post">
+            <label>Username: </label>
+            <input type="text" name="userName" min="1" max="25" required>
+            <input type="submit" value="Submit username"> 
+        </form>
     </h2>
     <script src="assets/js/index.js"></script>
 </body>
