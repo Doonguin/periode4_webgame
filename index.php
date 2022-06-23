@@ -11,6 +11,9 @@
     <canvas width="1280" height="720" id="canvas">
 
     </canvas>
+    <h2>
+        Jouw moeder is een heks
+    </h2>
     <script src="assets/js/index.js"></script>
 </body>
 </html>
