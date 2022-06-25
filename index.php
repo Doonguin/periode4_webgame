@@ -1,7 +1,6 @@
 <?php
 
 require('assets/database/connection.php');
-require('assets/database/formhandler.php');
 
 ?>
 
@@ -19,7 +18,7 @@ require('assets/database/formhandler.php');
 
     </canvas>
     <h2>
-        <form method="post">
+        <form method="POST">
             <label>Username: </label>
             <input type="text" name="userName" min="1" max="25" required>
             <input type="submit" value="Submit username"> 
@@ -28,3 +27,9 @@ require('assets/database/formhandler.php');
     <script src="assets/js/index.js"></script>
 </body>
 </html>
+
+<?php
+
+include('assets/database/formhandler.php');
+
+?>

@@ -2,11 +2,17 @@
 
 require('connection.php');
 
-$userName = $_GET['userName'];
+if ($_POST) {
+    session_start();
 
-$query = "INSERT INTO `players` (playerName) VALUES ('$userName')";
-$SQL->query($query);
+    $userName = $_POST['userName'];
+    $sessionid = session_id();
 
-unset($userName);
+    $query = "INSERT INTO `players` (playerName, sessionid) VALUES ('$userName', '$sessionid')";
+    $SQL->query($query);
+
+    header("Location: {$_SERVER['PHP_SELF']}", true, 303);
+    exit();
+}
 
 $SQL->close();
