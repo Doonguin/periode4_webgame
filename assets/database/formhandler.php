@@ -3,8 +3,6 @@
 require('connection.php');
 
 if ($_POST) {
-    session_start();
-
     $userName = $_POST['userName'];
     $sessionid = session_id();
 
@@ -14,5 +12,3 @@ if ($_POST) {
     header("Location: {$_SERVER['PHP_SELF']}", true, 303);
     exit();
 }
-
-$SQL->close();
