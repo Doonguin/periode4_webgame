@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 23, 2022 at 09:38 AM
+-- Generation Time: Jun 27, 2022 at 10:10 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -40,7 +40,8 @@ CREATE TABLE `highscores` (
 
 CREATE TABLE `players` (
   `id` int(11) NOT NULL,
-  `playerName` varchar(100) NOT NULL
+  `playerName` varchar(100) NOT NULL,
+  `sessionid` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
